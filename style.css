@@ -12,6 +12,7 @@ body {
 }
 
 /* Blurred album-style background image */
+/* Variables for dynamic movement */
 body::before {
   content: '';
   position: fixed;
@@ -19,10 +20,16 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('balloons-bg.jpg') center/cover no-repeat fixed;
-  opacity: 0.2; /* subtle effect */
+  opacity: 0.2;
   filter: blur(6px);
   z-index: -1;
+
+  /* Use CSS variables to control position */
+  background-position: center;
+  transform: translate(var(--bg-x, 0px), var(--bg-y, 0px));
+  transition: transform 0.1s ease;
 }
+
 
 /* Fade animations */
 .fade-out {

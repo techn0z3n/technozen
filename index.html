@@ -7,28 +7,46 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Background Music -->
-  <audio id="bg-music" src="music.mp3" autoplay loop></audio>
+  <!-- Click-to-Start Overlay -->
+  <div id="start-screen">
+    <div class="start-content">
+      <h1>Welcome</h1>
+      <p>Click below to enter my site and start the music</p>
+      <button id="start-btn">Enter Site</button>
+    </div>
+  </div>
 
-  <div class="container">
+  <!-- Background Music -->
+  <audio id="bg-music" src="music.mp3" loop></audio>
+
+  <!-- Main Content -->
+  <div class="container" id="main-content">
     <h1>Hi, I'm Oscar!</h1>
     <p>Welcome to my personal website. I love coding, music, and design.</p>
     <p>This site is a small window into who I am.</p>
+    <button id="music-toggle">Pause Music</button>
   </div>
-
-  <button id="music-toggle">Pause Music</button>
 
   <script>
     const music = document.getElementById('bg-music');
-    const button = document.getElementById('music-toggle');
+    const startScreen = document.getElementById('start-screen');
+    const startBtn = document.getElementById('start-btn');
+    const toggleBtn = document.getElementById('music-toggle');
 
-    button.addEventListener('click', () => {
+    // Click-to-start logic
+    startBtn.addEventListener('click', () => {
+      music.play();
+      startScreen.style.display = 'none';
+    });
+
+    // Toggle music on/off
+    toggleBtn.addEventListener('click', () => {
       if (music.paused) {
         music.play();
-        button.textContent = 'Pause Music';
+        toggleBtn.textContent = 'Pause Music';
       } else {
         music.pause();
-        button.textContent = 'Play Music';
+        toggleBtn.textContent = 'Play Music';
       }
     });
   </script>

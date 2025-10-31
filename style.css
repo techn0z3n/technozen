@@ -9,6 +9,7 @@ body {
   overflow: hidden;
 }
 
+/* Main container hidden initially (JS will show it later) */
 .container {
   display: flex;
   flex-direction: column;
@@ -44,6 +45,12 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 100;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#start-screen.fade-out {
+  opacity: 0;
 }
 
 .start-content {

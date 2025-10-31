@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bg-music" src="music.mp3" autoplay loop></audio>
+
+  <div class="container">
+    <h1>Hi, I'm Oscar!</h1>
+    <p>Welcome to my personal website. I love coding, music, and design.</p>
+    <p>This site is a small window into who I am.</p>
+  </div>
+
+  <button id="music-toggle">Pause Music</button>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const button = document.getElementById('music-toggle');
+
+    button.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        button.textContent = 'Pause Music';
+      } else {
+        music.pause();
+        button.textContent = 'Play Music';
+      }
+    });
+  </script>
+</body>
+</html>

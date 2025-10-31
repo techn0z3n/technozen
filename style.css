@@ -1,22 +1,35 @@
+/* Reset and base styling */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #141e30, #243b55);
   color: white;
-  text-align: center;
-  height: 100vh;
   overflow: hidden;
+  height: 100vh;
 }
 
-/* Main container hidden initially (JS will show it later) */
+/* Container (About Me content) */
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 100vh;
-  opacity: 0.95;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.container p {
+  max-width: 600px;
+  margin: 10px auto;
+  line-height: 1.6;
 }
 
 button {
@@ -49,10 +62,6 @@ button:hover {
   transition: opacity 1s ease;
 }
 
-#start-screen.fade-out {
-  opacity: 0;
-}
-
 .start-content {
   text-align: center;
   color: white;
@@ -65,4 +74,18 @@ button:hover {
 
 .start-content p {
   margin-bottom: 20px;
+}
+
+/* Fade animations */
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+.hidden {
+  display: flex;
+  opacity: 0;
 }

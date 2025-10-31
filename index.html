@@ -20,7 +20,7 @@
   <audio id="bg-music" src="music.mp3" loop></audio>
 
   <!-- Main Content -->
-  <div class="container" id="main-content">
+  <div class="container hidden" id="main-content">
     <h1>Hi, I'm Oscar!</h1>
     <p>Welcome to my personal website. I love coding, music, and design.</p>
     <p>This site is a small window into who I am.</p>
@@ -34,20 +34,20 @@
     const mainContent = document.getElementById('main-content');
     const toggleBtn = document.getElementById('music-toggle');
 
-    // Hide main content initially
-    mainContent.style.display = 'none';
-
     // Click-to-start logic
     startBtn.addEventListener('click', () => {
       music.play();
       startScreen.classList.add('fade-out');
+
+      // Wait for fade animation to finish before showing main content
       setTimeout(() => {
         startScreen.style.display = 'none';
-        mainContent.style.display = 'flex';
-      }, 1000); // matches CSS fade-out duration
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('fade-in');
+      }, 1000); // matches fade duration in CSS
     });
 
-    // Toggle music on/off
+    // Toggle music
     toggleBtn.addEventListener('click', () => {
       if (music.paused) {
         music.play();

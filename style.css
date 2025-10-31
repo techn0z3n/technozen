@@ -142,6 +142,9 @@ button:hover {
 
 .social-button.steam { background-color: #171a21; }
 .social-button.discord { background-color: #5865F2; }
+.social-button.github { background-color: #151013; }
+.social-button.spotify { background-color: #1DB954; }
+.social-button.yolkbot { background-color: #0047AB; }
 
 .social-button:hover {
   transform: scale(1.1);

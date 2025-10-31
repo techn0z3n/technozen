@@ -6,19 +6,19 @@ body {
   color: white;
   text-align: center;
   height: 100vh;
+  overflow: hidden;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.container {
-  max-width: 600px;
-  padding: 20px;
+  height: 100vh;
+  opacity: 0.95;
 }
 
 button {
-  margin-top: 20px;
   background: #ffffff20;
   border: 1px solid #fff;
   color: white;
@@ -30,4 +30,32 @@ button {
 
 button:hover {
   background: #ffffff40;
+}
+
+/* Click-to-start overlay */
+#start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.start-content {
+  text-align: center;
+  color: white;
+}
+
+.start-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.start-content p {
+  margin-bottom: 20px;
 }

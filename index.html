@@ -48,6 +48,15 @@
     const startBtn = document.getElementById('start-btn');
     const mainContent = document.getElementById('main-content');
     const toggleBtn = document.getElementById('music-toggle');
+// Make album background move with cursor
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 30; // horizontal movement
+  const y = (e.clientY / window.innerHeight - 0.5) * 30; // vertical movement
+
+  // Update CSS variables
+  document.body.style.setProperty('--bg-x', `${x}px`);
+  document.body.style.setProperty('--bg-y', `${y}px`);
+});
 
     startBtn.addEventListener('click', () => {
       // Start music with fade-in

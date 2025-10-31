@@ -31,12 +31,20 @@
     const music = document.getElementById('bg-music');
     const startScreen = document.getElementById('start-screen');
     const startBtn = document.getElementById('start-btn');
+    const mainContent = document.getElementById('main-content');
     const toggleBtn = document.getElementById('music-toggle');
+
+    // Hide main content initially
+    mainContent.style.display = 'none';
 
     // Click-to-start logic
     startBtn.addEventListener('click', () => {
       music.play();
-      startScreen.style.display = 'none';
+      startScreen.classList.add('fade-out');
+      setTimeout(() => {
+        startScreen.style.display = 'none';
+        mainContent.style.display = 'flex';
+      }, 1000); // matches CSS fade-out duration
     });
 
     // Toggle music on/off

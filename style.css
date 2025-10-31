@@ -7,12 +7,11 @@ body {
   color: #f1f1f1;
   overflow: hidden;
   height: 100vh;
-
-  /* Dark House of Balloons theme */
-  background: #0a0a0a; /* solid dark background */
+  background: #0a0a0a; /* Dark House of Balloons theme */
+  position: relative;
 }
 
-/* Optional album-style background image */
+/* Blurred album-style background image */
 body::before {
   content: '';
   position: fixed;
@@ -20,8 +19,8 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('balloons-bg.jpg') center/cover no-repeat fixed;
-  opacity: 0.2; /* subtle overlay for moody effect */
-  filter: blur(5px);
+  opacity: 0.2; /* subtle effect */
+  filter: blur(6px);
   z-index: -1;
 }
 
@@ -36,13 +35,13 @@ body::before {
   transition: opacity 1.5s ease;
 }
 
-/* Start screen */
+/* Click-to-start overlay */
 #start-screen {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: #0a0a0a; /* dark overlay */
+  background: #0a0a0a;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | House of Balloons Vibes</title>
+  <title>About Me | House of Balloons</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,9 +24,9 @@
     <div class="about-box">
       <h1>Hi, I'm Oscar</h1>
       <p>
-        Welcome to my corner of the internet — inspired by *House of Balloons*.  
+        Welcome to my personal website — inspired by *House of Balloons*.  
         I’m into coding, design, and music that tells a story.  
-        This page is about expression, mood, and the art of sound and style.
+        This page is about mood, style, and expression.
       </p>
       <button id="music-toggle">Pause Music</button>
     </div>
@@ -39,12 +39,10 @@
     const mainContent = document.getElementById('main-content');
     const toggleBtn = document.getElementById('music-toggle');
 
-    // Click-to-start logic
     startBtn.addEventListener('click', () => {
+      // Start music with fade-in
       music.volume = 0;
       music.play();
-
-      // Fade music in smoothly
       let vol = 0;
       const fadeIn = setInterval(() => {
         if (vol < 1) {
@@ -55,6 +53,7 @@
         }
       }, 100);
 
+      // Fade out intro
       startScreen.classList.add('fade-out');
       setTimeout(() => {
         startScreen.style.display = 'none';
@@ -63,7 +62,7 @@
       }, 1200);
     });
 
-    // Toggle music
+    // Music toggle button
     toggleBtn.addEventListener('click', () => {
       if (music.paused) {
         music.play();

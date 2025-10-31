@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>About Me | House of Balloons Vibes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Click-to-Start Overlay -->
   <div id="start-screen">
     <div class="start-content">
-      <h1>Welcome</h1>
-      <p>Click below to enter my site and start the music</p>
-      <button id="start-btn">Enter Site</button>
+      <h1>House of Balloons</h1>
+      <p>Click to enter and let the music in.</p>
+      <button id="start-btn">Enter</button>
     </div>
   </div>
 
@@ -21,10 +21,15 @@
 
   <!-- Main Content -->
   <div class="container hidden" id="main-content">
-    <h1>Hi, I'm Oscar!</h1>
-    <p>Welcome to my personal website. I love coding, music, and design.</p>
-    <p>This site is a small window into who I am.</p>
-    <button id="music-toggle">Pause Music</button>
+    <div class="about-box">
+      <h1>Hi, I'm Oscar</h1>
+      <p>
+        Welcome to my corner of the internet — inspired by *House of Balloons*.  
+        I’m into coding, design, and music that tells a story.  
+        This page is about expression, mood, and the art of sound and style.
+      </p>
+      <button id="music-toggle">Pause Music</button>
+    </div>
   </div>
 
   <script>
@@ -36,15 +41,26 @@
 
     // Click-to-start logic
     startBtn.addEventListener('click', () => {
+      music.volume = 0;
       music.play();
-      startScreen.classList.add('fade-out');
 
-      // Wait for fade animation to finish before showing main content
+      // Fade music in smoothly
+      let vol = 0;
+      const fadeIn = setInterval(() => {
+        if (vol < 1) {
+          vol += 0.02;
+          music.volume = vol;
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 100);
+
+      startScreen.classList.add('fade-out');
       setTimeout(() => {
         startScreen.style.display = 'none';
         mainContent.classList.remove('hidden');
         mainContent.classList.add('fade-in');
-      }, 1000); // matches fade duration in CSS
+      }, 1200);
     });
 
     // Toggle music
